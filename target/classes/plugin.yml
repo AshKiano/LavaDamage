@@ -1,0 +1,7 @@
+name: LavaDamage
+version: '1.1'
+main: com.ashkiano.lavadamage.LavaDamage
+api-version: '1.16'
+authors: [AshKiano]
+description: This plugin inflicts heat damage on players who venture too close to lava, adding a new layer of danger to your Minecraft experience
+website: https://www.ashkiano.com
