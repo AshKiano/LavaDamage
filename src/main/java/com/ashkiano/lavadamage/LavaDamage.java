@@ -15,13 +15,20 @@ import org.bukkit.scheduler.BukkitRunnable;
 //TODO udelat aby ten efekt negovalo netherite brnko
 //TODO udelat aby ten efekt negoval nějaký enchant
 public class LavaDamage extends JavaPlugin {
-    private static final int CHECK_RADIUS = 5;
+    private int CHECK_RADIUS;
     private static final int DAMAGE_AMOUNT = 2;
 
     @Override
     public void onEnable() {
+        // Ensure config.yml is loaded or created
+        this.saveDefaultConfig();
+
+        // Load CHECK_RADIUS from config.yml
+        CHECK_RADIUS = this.getConfig().getInt("CHECK_RADIUS", 5);
+
         // Initialize Metrics for plugin analytics
         Metrics metrics = new Metrics(this, 18976);
+
         new BukkitRunnable() {
             @Override
             public void run() {
