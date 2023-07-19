@@ -7,7 +7,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
-//TODO přidat na git
 //TODO přidat configurovatelnost
 //TODO udělat něco jako zčervenání obrazovky
 //TODO přidat výpis do chatu a nebo do actionbaru že je horko a jsi blízko lávy
@@ -16,7 +15,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 //TODO udelat aby ten efekt negoval nějaký enchant
 public class LavaDamage extends JavaPlugin {
     private int CHECK_RADIUS;
-    private static final int DAMAGE_AMOUNT = 2;
+    private int DAMAGE_AMOUNT;
 
     @Override
     public void onEnable() {
@@ -25,6 +24,7 @@ public class LavaDamage extends JavaPlugin {
 
         // Load CHECK_RADIUS from config.yml
         CHECK_RADIUS = this.getConfig().getInt("CHECK_RADIUS", 5);
+        DAMAGE_AMOUNT = this.getConfig().getInt("DAMAGE_AMOUNT", 2);
 
         // Initialize Metrics for plugin analytics
         Metrics metrics = new Metrics(this, 18976);

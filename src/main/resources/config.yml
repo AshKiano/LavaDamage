@@ -1,1 +1,9 @@
+# CHECK_RADIUS determines the distance from the player within which 
+# the plugin checks for nearby lava blocks. 
+# The value is represented in blocks. Default value is 5.
 CHECK_RADIUS: 5
+
+# DAMAGE_AMOUNT determines the amount of damage dealt to the player 
+# if they are found to be within the CHECK_RADIUS of a lava block.
+# The value is represented in half hearts (e.g., a value of 2 means 1 heart). Default value is 2.
+DAMAGE_AMOUNT: 2
