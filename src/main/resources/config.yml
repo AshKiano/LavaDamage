@@ -7,3 +7,6 @@ CHECK_RADIUS: 5
 # if they are found to be within the CHECK_RADIUS of a lava block.
 # The value is represented in half hearts (e.g., a value of 2 means 1 heart). Default value is 2.
 DAMAGE_AMOUNT: 2
+
+# Permission that allows a player to bypass the lava damage
+BYPASS_PERMISSION: "lavadamage.bypass"
