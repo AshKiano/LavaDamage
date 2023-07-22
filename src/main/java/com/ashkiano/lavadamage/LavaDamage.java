@@ -1,5 +1,7 @@
 package com.ashkiano.lavadamage;
 
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
@@ -43,6 +45,7 @@ public class LavaDamage extends JavaPlugin {
                             // If the player is near lava, apply damage
                             if (isNearLava(player)) {
                                 player.damage(DAMAGE_AMOUNT);
+                                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText("§cYou're too close to the lava!"));
                             }
                         }
                     }
