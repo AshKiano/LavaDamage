@@ -19,6 +19,7 @@ public class LavaDamage extends JavaPlugin {
     private int CHECK_RADIUS;
     private int DAMAGE_AMOUNT;
     private String BYPASS_PERMISSION;
+    private boolean NETHERITE_BYPASS;
 
     @Override
     public void onEnable() {
@@ -29,6 +30,7 @@ public class LavaDamage extends JavaPlugin {
         CHECK_RADIUS = this.getConfig().getInt("CHECK_RADIUS", 5);
         DAMAGE_AMOUNT = this.getConfig().getInt("DAMAGE_AMOUNT", 2);
         BYPASS_PERMISSION = this.getConfig().getString("BYPASS_PERMISSION", "lavadamage.bypass");
+        NETHERITE_BYPASS = this.getConfig().getBoolean("NETHERITE_BYPASS", false);
 
         // Initialize Metrics for plugin analytics
         Metrics metrics = new Metrics(this, 18976);
@@ -40,8 +42,8 @@ public class LavaDamage extends JavaPlugin {
                 for (Player player : Bukkit.getOnlinePlayers()) {
                     // Check if player is in survival or adventure mode
                     if (player.getGameMode() == GameMode.SURVIVAL || player.getGameMode() == GameMode.ADVENTURE) {
-                        // Check if player has bypass permission
-                        if (!player.hasPermission(BYPASS_PERMISSION)) {
+                        // Check if player has bypass permission or is wearing Netherite armor with NETHERITE_BYPASS set to true
+                        if (!player.hasPermission(BYPASS_PERMISSION) && !(NETHERITE_BYPASS && isWearingNetherite(player))) {
                             // If the player is near lava, apply damage
                             if (isNearLava(player)) {
                                 player.damage(DAMAGE_AMOUNT);
@@ -69,4 +71,13 @@ public class LavaDamage extends JavaPlugin {
         // If there is no lava in the checked area, return false
         return false;
     }
+
+    // Method to check if a player is wearing a full Netherite armor set
+    private boolean isWearingNetherite(Player player) {
+        return player.getInventory().getHelmet() != null && player.getInventory().getHelmet().getType() == Material.NETHERITE_HELMET &&
+                player.getInventory().getChestplate() != null && player.getInventory().getChestplate().getType() == Material.NETHERITE_CHESTPLATE &&
+                player.getInventory().getLeggings() != null && player.getInventory().getLeggings().getType() == Material.NETHERITE_LEGGINGS &&
+                player.getInventory().getBoots() != null && player.getInventory().getBoots().getType() == Material.NETHERITE_BOOTS;
+    }
+
 }

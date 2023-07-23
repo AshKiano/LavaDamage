@@ -10,3 +10,7 @@ DAMAGE_AMOUNT: 2
 
 # Permission that allows a player to bypass the lava damage
 BYPASS_PERMISSION: "lavadamage.bypass"
+
+# When set to true, players wearing a full Netherite armor set will not take lava damage.
+# Default value is true.
+NETHERITE_BYPASS: true
