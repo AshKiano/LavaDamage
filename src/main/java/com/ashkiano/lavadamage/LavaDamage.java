@@ -12,7 +12,6 @@ import org.bukkit.scheduler.BukkitRunnable;
 //TODO přidat reload configu
 //TODO udělat něco jako zčervenání obrazovky
 //TODO přidat výpis do chatu a nebo do actionbaru že je horko a jsi blízko lávy
-//TODO udelat aby ten efekt negovalo netherite brnko
 //TODO udelat aby ten efekt negoval nějaký enchant
 public class LavaDamage extends JavaPlugin {
     // Define variables to store the values loaded from the config
@@ -35,7 +34,7 @@ public class LavaDamage extends JavaPlugin {
         // Initialize Metrics for plugin analytics
         Metrics metrics = new Metrics(this, 18976);
 
-        System.out.println("Thank you for using the LavaDamage plugin! If you enjoy using this plugin, please consider making a donation to support the development. You can donate at: https://paypal.me/josefvyskocil");
+        this.getLogger().info("Thank you for using the LavaDamage plugin! If you enjoy using this plugin, please consider making a donation to support the development. You can donate at: https://paypal.me/josefvyskocil");
 
         // Run a task every second (20 ticks = 1 second) for every player online
         new BukkitRunnable() {
