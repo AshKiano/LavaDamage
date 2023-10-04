@@ -34,7 +34,7 @@ public class LavaDamage extends JavaPlugin {
         // Initialize Metrics for plugin analytics
         Metrics metrics = new Metrics(this, 18976);
 
-        this.getLogger().info("Thank you for using the LavaDamage plugin! If you enjoy using this plugin, please consider making a donation to support the development. You can donate at: https://paypal.me/josefvyskocil");
+        this.getLogger().info("Thank you for using the LavaDamage plugin! If you enjoy using this plugin, please consider making a donation to support the development. You can donate at: https://donate.ashkiano.com");
 
         // Run a task every second (20 ticks = 1 second) for every player online
         new BukkitRunnable() {
